@@ -6,6 +6,7 @@ function appendCard() {
         newPlaylist.className = 'card';
         newPlaylist.innerHTML = 
         `
+        <span id="delete-card">&times;</span>   
         <img src="${playlist.playlist_art}" alt="Cover image of ${playlist.playlist_name}" class="playlist-cover">
         <h3>${playlist.playlist_name}</h3>
         <p>Created by: ${playlist.playlist_creator}</p>
@@ -28,6 +29,12 @@ function appendCard() {
         heartBtn.addEventListener('click', (event) => {
             updateLike(event, liked, newPlaylist);
         });
+
+        const deleteBtm = newPlaylist.querySelector('#delete-card');
+       deleteBtm.addEventListener('click', (event) => {
+           deleteCard(event, cardContainer, newPlaylist);
+       });
+
 
 }
 
@@ -102,6 +109,16 @@ function updateLike(event, liked, newPlaylist) {
 
 
 
+function deleteCard(event, cardContainer, newPlaylist) {
+    event.stopPropagation();
+    cardContainer.removeChild(newPlaylist);
+ 
+ 
+    const playlistIndex = data.playlists.findIndex(playlist => playlist.playlist_name === newPlaylist.querySelector('h3').innerText);
+    data.playlists.splice(playlistIndex, 1);
+ }
+ 
+
 
 
 
@@ -126,3 +143,92 @@ function shuffleSongs() {
 }
 
 shuffleBtn.addEventListener('click', shuffleSongs);
+
+
+
+
+
+const searchInput = document.querySelector('#search-bar');
+searchInput.addEventListener('input', filterPlaylists);
+
+
+function filterPlaylists(event) {
+  
+   const searchTerm = event.target.value.toLowerCase();
+    const playlistCards = document.querySelectorAll('.card');
+    playlistCards.forEach((card) => {
+       card.classList.remove('hide');
+     });
+
+
+   if (searchTerm === '') {
+     return;
+   }
+  
+   // Loop through each card and check if it matches the search term
+   playlistCards.forEach((card) => {
+
+
+     const playlistName = card.querySelector('h3').textContent.toLowerCase();
+     const playlistCreator = card.querySelector('p').textContent.toLowerCase();
+    
+     if (!(playlistName.includes(searchTerm)) && !(playlistCreator.includes(searchTerm))) {
+       card.classList.add('hide');
+     }
+     else {
+       card.classList.remove('hide');
+     }
+   });
+ }
+
+
+
+
+const sortBtn = document.getElementById('sort-btn');
+let sortMenu = document.getElementById('sort-menu')
+
+
+function sort() {
+   sortOption = sortMenu.options[sortMenu.selectedIndex].value;
+   console.log(sortOption);
+  
+   const playlistCards = Array.from(document.querySelectorAll('.card'));
+   console.log(sortOption)
+   if (sortOption === 'name') {
+       playlistCards.sort(function(a, b) {
+           const nameA = a.querySelector('h3').textContent.toLowerCase();
+           const nameB = b.querySelector('h3').textContent.toLowerCase();
+           if (nameA < nameB) {
+               return -1;
+           }
+           if (nameA > nameB) {
+               return 1;
+           }
+           return 0;
+       });
+   } else {
+       playlistCards.sort(function(a, b) {
+           const likesA = parseInt(a.querySelector('.like-count').textContent);
+           const likesB = parseInt(b.querySelector('.like-count').textContent);
+           return likesB - likesA;
+       });
+   }
+  
+   // Remove all playlist cards from the DOM
+   playlistCards.forEach((card) => {
+       card.remove();
+   });
+  
+   // Add sorted playlist cards back to the DOM
+   const container = document.querySelector('.playlist-cards');
+   playlistCards.forEach((card) => {
+       container.appendChild(card);
+
+
+    });
+}
+
+
+sortBtn.addEventListener('click', () =>{
+    sort();
+});

@@ -11,10 +11,24 @@
 </head>
 <body>
     <header>
+        <div class="order">
+        <input type="text" id="search-bar" placeholder="Search...">
+
+        <div class="sort-container">
+            <button id="sort-btn">Sort</button>
+            <select id="sort-menu">
+            <option value="" selected disabled hidden>Choose here</option>
+              <option value="name">Name</option>
+              <option value="likes">Likes</option>
+            </select>
+          </div>
+        </div>
+
         <h1>Music Playlist Explorer</h1>
-        <a href="./featured.html">Featured Page</a>
+        <a href="./featured.html" class="featured-link">Featured Page</a>
         
     </header>
+    
 
     <main> 
         <!-- holder for playlists -->

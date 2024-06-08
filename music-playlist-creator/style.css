@@ -18,6 +18,7 @@ header {
     left: 0;
     z-index: 999;
     border: 2px solid black;
+    position: relative;
 
 }
 
@@ -25,7 +26,7 @@ header h1 {
     font-size: 3em;
     margin: 0;
     text-align: center;
-    padding-top: 2.5%;
+
 }
 
 header a {
@@ -35,9 +36,15 @@ header a {
     color: white; /* White text color */
     text-decoration: none; /* Remove underline from link */
     border-radius: 5px; /* Add rounded corners */
-    margin-right: 10px; /* Add some space between link and edge of header */
+
 }
 
+.featured-link {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+  }
+  
 
 
 .playlist-cards {
@@ -80,6 +87,12 @@ header a {
     background-color: Silver;
     top: -10px;
 }
+
+
+.card.hide {
+    display: none;
+    }
+    
 
 .like-info {
     display: flex; 
@@ -230,3 +243,62 @@ ul {
 
 
 
+
+
+
+
+
+
+.add-card {
+    flex: 0 0 5%;
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    box-shadow: 10px 5px 5px black;
+ 
+ 
+ }
+ 
+ 
+ 
+ 
+ .order {
+    display: flex;
+    justify-content: space-between; /* Add this line */
+    align-items: center; /* Add this line */
+    padding: 10px;
+  }
+  #search-bar {
+    width: 200px; /* Set a fixed width for the search bar */
+    margin-right: 20px; /* Add some space between the search bar and sort button */
+  }
+  .sort-container {
+    display: flex;
+    align-items: center; /* Add this line to vertically center the sort button and dropdown menu */
+    padding-left: 50px;
+  }
+  #sort-btn {
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  #sort-menu {
+    background-color: #f2f2f2;
+    border: none;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
