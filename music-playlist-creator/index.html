@@ -11,16 +11,41 @@
 </head>
 <body>
     <header>
-        <!-- Your header content here -->
+        <h1>Music Playlist Explorer</h1>
+        <a href="./featured.html">Featured Page</a>
+        
     </header>
 
     <main> 
-        <!-- Your main content here -->
+        <!-- holder for playlists -->
+        <section class="playlist-cards"></section> 
+
+        
+        <!-- playlist information -->
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <span id="close-modal">&times;</span>
+
+                <div class="image-text"> 
+                        <img src="./assets/img/playlist.png" alt="" class="playlist-img">
+                    <div class="modal-header"> 
+                        <h1>Playlist name</h1>
+                        <p>Created by</p>
+                    </div>
+                </div>
+
+                <button id="shuffle-btn">Shuffle</button>
+                <!-- song information(from data.js) -->
+                <div class="songs-wrapper">
+                <ul id="songs-list"></ul>
+            </div>
+
+            </div>
+        </div>
+
+        
     </main>
 
-    <footer>
-        <!-- Your footer content here -->
-    </footer>
     <script src="data/data.js"></script>
     <script src="script.js"></script>
 </body>

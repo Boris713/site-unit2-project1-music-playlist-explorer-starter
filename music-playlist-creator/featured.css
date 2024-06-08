@@ -1,0 +1,95 @@
+html {
+    height: 100%;
+}
+body {
+    
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: linear-gradient(to bottom, #8AAAE5, #B3DAF1);
+}
+
+header {
+    background: linear-gradient(to bottom, #B3DAF1, #8AAAE5);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 12vh;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    z-index: 999;
+    border: 2px solid black;
+
+}
+
+header h1 {
+    font-size: 3em;
+    margin: 0;
+    text-align: center;
+    padding-top: 2.5%;
+}
+
+header a {
+    float: right;
+    padding: 10px 30px; /* Add padding for better click target */
+    background-color: #337ab7; /* Blue button color */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline from link */
+    border-radius: 5px; /* Add rounded corners */
+    margin-right: 10px; /* Add some space between link and edge of header */
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin-top: 15%;
+    
+}
+
+
+#playlist-cover {
+    width: 150%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;        
+    margin: 0;        
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.song {
+    display: flex;
+    padding: 10px 0;        
+    border-bottom: 1px solid #ccc;        
+}
+
+.song-image {
+    margin-right: 20px;
+    width: 60px;
+    height: 60px;
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;        
+    
+}
+
+.song-info h3, .song-info p {
+    margin: 0;
+    padding: 2px 0;
+}
+
+.song-length {
+    margin-left: auto;        
+    white-space: nowrap;
+} 
