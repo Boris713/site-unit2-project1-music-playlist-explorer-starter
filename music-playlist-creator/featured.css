@@ -58,6 +58,10 @@ header a {
   }
 
 
+  .explorer-link:hover {
+    transform: scale(1.1); /* Scale the image up by 10% when hovered over */
+  }
+
 .container {
     display: flex;
     justify-content: center;
@@ -69,7 +73,13 @@ header a {
 
 #playlist-cover {
     width: 150%;
+    transition: transform 0.3s ease-in-out;
 }
+
+
+#playlist-cover:hover {
+    transform: scale(1.1); /* Scale the image up by 10% when hovered over */
+  }
 
 ul {
     list-style-type: none;
@@ -109,3 +119,24 @@ ul {
     margin-left: auto;        
     white-space: nowrap;
 } 
+
+
+
+
+  /* Define the keyframes for the animation */
+@keyframes bounceUp {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply the animation to the element on hover */
+  #song-list li:hover {
+    animation: bounceUp 0.3s ease-in-out;
+  }
