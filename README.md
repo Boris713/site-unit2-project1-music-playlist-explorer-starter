@@ -14,9 +14,9 @@ Stretch Features
 
 - [ ]Edit Existing Playlists
 
-- [ ]Delete Playlists
+- [x]Delete Playlists
 
-- [ ]Search Functionality
+- [x]Search Functionality
 
-- [ ]Sorting Options
+- [x]Sorting Options
 
